@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start with JSX</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="root">
+    </div>
+
+    <script type="text/babel">
+
+        function App() {
+            // let     arr=[1,2,3,4,5,6]
+
+            // let obj={
+            //     name:"Alexa",
+            //     age:10
+            // }
+            // return (
+            //     <>
+            //     <h1>Array and object in JavaScript</h1>
+            //     {arr.map((num)=> <h2>{num}</h2>)}
+            //     <h2>{arr}</h2>
+            //     <h2>{obj.name}</h2>
+
+            //     </>
+            // )
+
+
+            // let cars = ["BMW", "Audi", "Nexa", "Honda", "Maruti"]
+
+            // return (
+            //     <>
+            //         <h1>List of cars</h1>
+            //         <ul>
+            //             {cars.map((car, index) =>
+            //                 <li key="{index}">{car}</li>
+            //             )}
+
+            //         </ul>
+
+            //     </>
+            // )
+
+            // let students = [{ name: "Alexa", age: 10, marks: 20 },
+            // { name: "siri", age: 12, marks: 40 },
+            // { name: "Google", age: 13, marks: 41 }
+            // ]
+
+            // return (
+            //     <>
+            //         <h1>students details</h1>
+            //         <table>
+            //             <thead>
+            //                 <tr>
+            //                     <th>Name</th>
+            //                     <th>Age</th>
+            //                     <th>Marks</th>
+            //                 </tr>
+            //             </thead>
+
+
+            //             <tbody>
+
+
+            //                 {students.map((student, index) => (<tr key={index}>
+            //                     <td> {student.name} </td>
+            //                     <td>{student.age}</td>
+            //                     <td>{student.marks}</td>
+            //                 </tr>))}
+            //             </tbody>
+
+            //             <tfoot></tfoot>
+
+            //         </table>
+
+            //     </>
+            // )
+
+               let cars = [{ name: "BMW", average: 10, img: "https://cdn-icons-png.flaticon.com/128/741/741407.png" },
+            { name: "Audi", average: 12, img: "https://cdn-icons-png.flaticon.com/128/741/741407.png" },
+            { name: "Nexa", average: 18, img: "https://cdn-icons-png.flaticon.com/128/741/741407.png" }
+            ]
+
+            return (
+                <>
+                    <h1>Cars details</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Average</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+
+                            {cars.map((car, index) => (<tr key={index}>
+                                <td> <img src={car.img} /> </td>
+                                <td>{car.name}</td>
+                                <td>{car.average}</td>
+                            </tr>))}
+                        </tbody>
+
+
+                    </table>
+
+                </>
+            )
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+
+    </script>
+</body>
+
+</html>

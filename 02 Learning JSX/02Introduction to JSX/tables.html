@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start with JSX</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        table {
+            border-color: brown;
+            border-style: double;
+            border-radius: 10px;
+            border-width: 2px;
+            border-collapse: collapse;
+        }
+
+        th {
+            border: 0px;
+            border-bottom: 1px;
+            border-right: 1px;
+            border-style: solid;
+            background-color: aquamarine;
+        }
+
+        td {
+            border: 0px;
+            border-bottom: 1px;
+            border-right: 1px;
+            border-style: solid;
+
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        img {
+            width: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root">
+    </div>
+
+    <script type="text/babel">
+
+        function Students() {
+
+            let students = [{ name: "Alexa", age: 10, marks: 20 },
+            { name: "siri", age: 12, marks: 40 },
+            { name: "Google", age: 13, marks: 41 }
+            ]
+
+            return (
+                <>
+                    <h1>students details</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Marks</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+
+
+                            {students.map((student, index) => (<tr key={index}>
+                                <td> {student.name} </td>
+                                <td>{student.age}</td>
+                                <td>{student.marks}</td>
+                            </tr>))}
+                        </tbody>
+
+                        <tfoot></tfoot>
+
+                    </table>
+
+                </>
+            )
+        }
+
+        function CarsPage() {
+
+            let cars = [{ name: "BMW", average: 10, img: "https://cdn-icons-png.flaticon.com/128/741/741407.png" },
+            { name: "Audi", average: 12, img: "https://cdn-icons-png.flaticon.com/128/741/741407.png" },
+            { name: "Nexa", average: 18, img: "https://cdn-icons-png.flaticon.com/128/741/741407.png" }
+            ]
+
+            return (
+                <>
+                    <h1>Cars details</h1>
+                    <table className="tab">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Average</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+
+                            {cars.map((car, index) => (<tr key={index}>
+                                <td> <img src={car.img} /> </td>
+                                <td>{car.name}</td>
+                                <td>{car.average}</td>
+                            </tr>))}
+                        </tbody>
+
+
+                    </table>
+
+                </>
+            )
+        }
+
+
+
+        // function App() {
+        //     // conditional rendering
+        //     let showCars = false;
+
+        //     if (showCars) {
+        //         return <CarsPage />
+        //     }
+
+        //     return (
+        //         <>
+        //             <Students />
+        //         </>
+        //     )
+        // }
+
+
+        function App() {
+
+            // turnary operator  
+
+            // let loggedIn= true
+
+
+            //     return (
+            //         <>
+            //             <h1>Hello {loggedIn?"Alexa":"User"}!</h1>
+
+            //             // conditional redering and operator
+            //             {loggedIn &&<p>Welcome to the portal</p>}
+            //         </>
+            //     )
+
+
+            // turnary operator  
+
+            let loggedIn = true
+            let name = "Alexa"
+            let lastName = "Diaz"
+            // let lastName = ""
+
+
+
+            return (
+                <>
+                    <h1>Hello {loggedIn ? lastName || name : "User"}!</h1>
+
+                    {loggedIn && <p>Welcome to the portal</p>}
+                </>
+            )
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+
+    </script>
+</body>
+
+</html>
